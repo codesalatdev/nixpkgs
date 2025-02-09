@@ -18,13 +18,13 @@
 
 mkDerivation rec {
   pname = "solarus";
-  version = "1.6.4";
+  version = "1.6.5";
 
   src = fetchFromGitLab {
     owner = "solarus-games";
     repo = pname;
     rev = "v${version}";
-    sha256 = "sbdlf+R9OskDQ5U5rqUX2gF8l/fj0sDJv6BL7H1I1Ng=";
+    sha256 = "sha256-LaJKpvwKiN/k2bZuZCNG7v5sYRBGOJfToGJLePFryVs=";
   };
 
   outputs = [
@@ -54,10 +54,6 @@ mkDerivation rec {
     (lib.cmakeFeature "CMAKE_CXX_FLAGS" "-DGLM_ENABLE_EXPERIMENTAL")
   ];
 
-  preFixup = ''
-    mkdir $lib/
-    mv $out/lib $lib
-  '';
 
   meta = with lib; {
     description = "Zelda-like ARPG game engine";
